@@ -1,0 +1,22 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+
+{% for socios in socios %}
+
+    <li>{{ socios }}</li>
+    <button>
+        <a href="{% url 'eliminarSocio' socios.nombre %}">eliminarSocio</a>
+    </button>
+
+    <button>
+        <a href="{% url 'editarSocio' socios.nombre %}">editarSocio</a>
+    </button>
+
+{% endfor %}
+
+<a href="{% url 'socioFormulario' %}">agregar nuevo socio</a>
+
+{% endblock %}
